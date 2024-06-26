@@ -9,7 +9,7 @@ const urlRoute = require('./routes/url');
 const staticRoute = require('./routes/staticRouter')
 const userRoute =require('./routes/user');
 const CookieParser = require("cookie-parser");
-const { sessionVerification, checkAuth } = require("./middlewares/auth")
+const { checkAuth, sessionVerification } = require("./middlewares/auth")
 
 const app = express();
 const PORT = 3000;
@@ -22,11 +22,12 @@ app.set("views", path.resolve("./views"));
 //middleware
 app.use(express.json());
 app.use(express.urlencoded({ extended: false }));
-app.use(CookieParser()); 
+app.use(CookieParser());
+//app.use(checkForAuthentication); 
 
 
 app.use("/url", sessionVerification, urlRoute);
-app.use("/user", checkAuth, userRoute);
+app.use("/user",checkAuth,  userRoute);
 app.use("/",checkAuth, staticRoute);
 
 

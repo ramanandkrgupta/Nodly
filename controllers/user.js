@@ -21,9 +21,13 @@ async function handleUserLogin(req, res) {
 })
     const token = setUser(user);
     
-    res.cookie("sessionId", token)
+    res.cookie("sessionId", token,{
+        httpOnly: true,
+        maxAge: 900000,
+    })
+   // return res.json({ token });
 
-    return res.redirect("/")
+   return res.redirect("/")
 }
 
 module.exports = {

@@ -57,16 +57,22 @@
     <% if (locals.id) { %>
         <p>URL Generated: http://localhost:3000/<%= id %> </p>
     <% } %>
-    <div>
+    <!-- <div class="join">
+        <input class="input input-bordered join-item" placeholder="Email" />
+        <button class="btn join-item rounded-r-full">Subscribe</button>
+      </div> -->
+    <div class="join mx-auto">
         <form method="POST" action="/url">
             
-            <input type="text"  name="url" required placeholder="https://google.com" class="input input-bordered input-success w-full max-w-xs">
-            <button class="btn btn-primary" type="submit" >Shorten</button>
+            <input type="text"  name="url" required placeholder="https://google.com" class="input input-bordered input-success  join-item max-w-xs">
+            <button class="btn btn-primary join-item" type="submit" >Shorten</button>
         </form>
     </div>
+
+    <!-- all shortedlink details -->
     <div class="overflow-x-auto">
         <% if (locals.urls) { %>
-            <table class="table">
+            <table class="table table-xs">
                 <thead>
                     <th>S.no</th>
                     <th>ShortID</th>
@@ -77,8 +83,8 @@
                     <% urls.forEach((url, index) => { %>
                         <tr>
                             <td><%= index + 1 %></td>
-                            <td><%= url.shortId %></td>
-                            <td><%= url.redirectUrl %></td>
+                            <td><a href="http://localhost:3000/<%= url.shortId %>"><%= url.shortId %></a></td>
+                            <td><a href="<%= url.redirectUrl %>"><%= url.redirectUrl %></a></td>
                             <td><%= url.visitHistory.length %></td>
                         </tr>
                     <% }) %>
