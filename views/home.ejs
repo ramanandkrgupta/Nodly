@@ -6,25 +6,67 @@
             font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
         }
     </style>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link href="https://cdn.jsdelivr.net/npm/daisyui@4.12.8/dist/full.min.css" rel="stylesheet" type="text/css" />
+
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>home page</title>
+    <title>Home - Nodly</title>
 </head>
 <body>
-    <h1> URL Shortner</h1>
+
+    <!-- navabr -->
+    <div class="navbar bg-base-100">
+        <div class="flex-1">
+          <a href="/" class="btn btn-ghost text-xl">Nodly</a>
+        </div>
+        <div class="flex-none gap-2">
+          <div class="form-control">
+            <input type="text" placeholder="Search" class="input input-bordered w-24 md:w-auto" />
+          </div>
+          <div class="dropdown dropdown-end">
+            <div tabindex="0" role="button" class="btn btn-ghost btn-circle avatar">
+              <div class="w-10 rounded-full">
+                <img
+                  alt="Tailwind CSS Navbar component"
+                  src="https://img.daisyui.com/images/stock/photo-1534528741775-53994a69daeb.jpg" />
+              </div>
+            </div>
+            <ul
+              tabindex="0"
+              class="menu menu-sm dropdown-content bg-base-100 rounded-box z-[1] mt-3 w-52 p-2 shadow">
+              <li>
+                <a class="justify-between">
+                  Profile
+                  <span class="badge">New</span>
+                </a>
+              </li>
+              <li><a>Settings</a></li>
+              <li><a>Logout</a></li>
+            </ul>
+          </div>
+        </div>
+      </div>
+
+
+
+
+
+
+    <h1 class="text-md font-bold center">Dashboard</h1>
     <% if (locals.id) { %>
         <p>URL Generated: http://localhost:3000/<%= id %> </p>
     <% } %>
     <div>
         <form method="POST" action="/url">
-            <label>Enter Your Link </label>
-            <input type="text"  name="url" required placeholder="https://google.com">
-            <button type="submit" >Shorten</button>
+            
+            <input type="text"  name="url" required placeholder="https://google.com" class="input input-bordered input-success w-full max-w-xs">
+            <button class="btn btn-primary" type="submit" >Shorten</button>
         </form>
     </div>
-    <div>
+    <div class="overflow-x-auto">
         <% if (locals.urls) { %>
-            <table>
+            <table class="table">
                 <thead>
                     <th>S.no</th>
                     <th>ShortID</th>
