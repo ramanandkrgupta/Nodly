@@ -6,7 +6,7 @@
     "node": "18.x"
   },
   "scripts": {
-    "start": "nodemon index"
+    "start": "nodem database && node index"
   },
   "author": "",
   "license": "ISC",
