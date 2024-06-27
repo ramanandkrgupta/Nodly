@@ -55,7 +55,7 @@
 
     <h1 class="text-md font-bold center">Dashboard</h1>
     <% if (locals.id) { %>
-        <p>URL Generated: http://localhost:3000/<%= id %> </p>
+        <p>URL Generated: <%= appUrl %><%= id %> </p>
     <% } %>
     <!-- <div class="join">
         <input class="input input-bordered join-item" placeholder="Email" />
@@ -83,7 +83,7 @@
                     <% urls.forEach((url, index) => { %>
                         <tr>
                             <td><%= index + 1 %></td>
-                            <td><a href="http://localhost:3000/<%= url.shortId %>"><%= url.shortId %></a></td>
+                            <td><a href="<%= appUrl %><%= url.shortId %>"><%= url.shortId %></a></td>
                             <td><a href="<%= url.redirectUrl %>"><%= url.redirectUrl %></a></td>
                             <td><%= url.visitHistory.length %></td>
                         </tr>

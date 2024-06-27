@@ -23,6 +23,7 @@ router.get('/', restrictTo(['NORMAL', 'ADMIN']), async (req, res) => {
     const allurls = await URL.find({ createdBy: req.user._id })
     res.render("home", {
         urls: allurls,
+        vercelUrl: process.env.PUBLIC_APP_URL,
     });
 });
 

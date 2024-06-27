@@ -1,4 +1,7 @@
+require('dotenv').config();
+
 const express = require("express");
+
 
 const path = require('path')
 const { connectToMongoDB } = require("./database")
@@ -14,7 +17,7 @@ const { restrictTo, checkForAuthentication } = require("./middlewares/auth")
 const app = express();
 const PORT = 3000;
 
-connectToMongoDB("mongodb+srv://nodly:6xLEP9qIf5UqjHAN@nodly.wpfva9z.mongodb.net/NodlyDB?retryWrites=true&w=majority&appName=nodly").then(() => console.log('mongodb connected'))
+connectToMongoDB(process.env.MONGO_URL).then(() => console.log('mongodb connected'))
 
 app.set("view engine", "ejs");
 app.set("views", path.resolve("./views"));
