@@ -32,10 +32,7 @@ router.get('/signup', (req, res) => {
 router.get('/login', (req, res) => {
     return res.render("login")
 });
-router.get('/logout', (req, res) => {
-    res.clearCookie('sessionId');
-    res.redirect('/login');
-  });
+
 
 
 module.exports = router
