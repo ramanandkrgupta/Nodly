@@ -16,6 +16,8 @@ router.get("/admin/urls", restrictTo(['ADMIN']), async (req, res) => {
     const allurls = await URL.find({})
     res.render("home", {
         urls: allurls,
+appUrl: process.env.PUBLIC_APP_URL,
+
     });
 })
 
