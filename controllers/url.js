@@ -13,6 +13,7 @@ async function handleGenerateNewShortURL (req, res) {
     });
     return res.render('home', {
         id: shortId,
+appUrl: process.env.PUBLIC_APP_URL,
     });
 }
 
