@@ -1,3 +1,7 @@
+const dotenv = require('dotenv');
+
+dotenv.config();
+
 const express = require('express');
 const { sessionVerification, restrictTo } = require("../middlewares/auth")
 const { handleUserLogout } = require('../controllers/user')
