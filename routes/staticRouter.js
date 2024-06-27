@@ -1,5 +1,6 @@
 const express = require('express');
 const { sessionVerification, restrictTo } = require("../middlewares/auth")
+const { handleUserLogout } = require('../controllers/user')
 const URL = require("../models/url");
 const { logout } = require('../service/auth')
 
@@ -33,6 +34,7 @@ router.get('/login', (req, res) => {
     return res.render("login")
 });
 
+router.get("/logout", handleUserLogout);
 
 
 module.exports = router
