@@ -14,7 +14,7 @@ const { restrictTo, checkForAuthentication } = require("./middlewares/auth")
 const app = express();
 const PORT = 3000;
 
-connectToMongoDB("mongodb://localhost:27017/short-url").then(() => console.log('mongodb connected'))
+connectToMongoDB("mongodb+srv://nodly:6xLEP9qIf5UqjHAN@nodly.wpfva9z.mongodb.net/NodlyDB?retryWrites=true&w=majority&appName=nodly").then(() => console.log('mongodb connected'))
 
 app.set("view engine", "ejs");
 app.set("views", path.resolve("./views"));

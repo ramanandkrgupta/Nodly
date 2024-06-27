@@ -27,11 +27,16 @@ async function handleUserLogin(req, res) {
     return res.redirect("/")
 
     //return res.json({ token }); // header: auth
+}
 
-
+async function handleUserLogout(req, res) {
+    res.clearCookie("sessionId");
+    return res.redirect("/login")
+    
 }
 
 module.exports = {
     handleUserSigup,
     handleUserLogin,
+    handleUserLogout,
 }
